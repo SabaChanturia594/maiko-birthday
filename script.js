@@ -3,6 +3,16 @@ const message = document.getElementById("message");
 const effects = document.getElementById("effects");
 const song = document.getElementById("birthdaySong");
 
+window.addEventListener("load", () => {
+
+  const card = document.querySelector(".invite-card");
+
+  setTimeout(() => {
+    card.classList.add("show-card");
+  }, 3000);
+
+});
+
 button.addEventListener("click", () => {
   message.textContent = "მაიკოს ძალიან გაუხარდება, გელოდებით!  🎉💜";
   button.textContent = "დასტური მიღებულია ✨";
