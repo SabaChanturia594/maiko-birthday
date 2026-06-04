@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@600;800;900&display=swap');
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  height:100vh;
+  overflow:hidden;
+  font-family:"Noto Sans Georgian",sans-serif;
+  display:grid;
+  place-items:center;
+  color:white;
+  background:
+    linear-gradient(rgba(10,0,35,.25),rgba(5,0,20,.7)),
+    url("bg.png") center/cover no-repeat fixed;
+}
+
+.invite-card{
+  width:min(390px,94vw);
+  height:min(650px,100vh);
+  padding:15px;
+  border-radius:28px;
+  background:rgba(16,0,45,.35);
+  border:1px solid rgba(255,255,255,.35);
+  box-shadow:0 0 45px #ff22d6, inset 0 0 25px rgba(0,234,255,.25);
+  backdrop-filter:blur(6px);
+  animation:pulseCard 2s infinite alternate;
+}
+
+@keyframes pulseCard{
+  from{box-shadow:0 0 28px #ff22d6}
+  to{box-shadow:0 0 55px #00eaff}
+}
+
+.top-label{
+  text-align:center;
+  font-size:40px;
+  font-weight:900;
+  letter-spacing:2px;
+  color:#8ff6ff;
+  text-shadow:0 0 12px #00eaff;
+  margin:4px 0 120px;
+}
+
+.paper{
+  position: relative;
+  top: -90px; /* რაც უფრო დიდი უარყოფითი რიცხვია, მით მაღლა ავა */
+  
+  padding:18px 15px;
+  border-radius:24px;
+  text-align:center;
+  color:#250047;
+  background:rgba(255,240,255,.9);
+  border:3px solid #ff5fe1;
+  box-shadow:0 0 30px #ff4fd8;
+  animation:floatBox 3s ease-in-out infinite;
+}
+
+@keyframes floatBox{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
+
+.small-title{
+  margin:0 0 6px;
+  font-size:12px;
+  color:#7b29ff;
+  font-weight:800;
+}
+
+h1{
+  margin:0;
+  font-size:23px;
+  line-height:1.15;
+  font-weight:900;
+  color:#2d0a75;
+}
+
+h1 span{
+  font-size:42px;
+  color:#d723b9;
+  text-shadow:0 2px #7b29ff,0 0 12px #ff66df;
+}
+
+.text{
+  font-size:12px;
+  line-height:1.45;
+  margin:10px 0;
+}
+
+.details{
+  display:grid;
+  gap:7px;
+  margin:10px 0;
+}
+
+.details div{
+  background:white;
+  border:2px dashed #d85cff;
+  border-radius:13px;
+  padding:7px;
+}
+
+.details span{
+  display:block;
+  font-size:11px;
+  color:#7e30cb;
+}
+
+.details strong{
+  display:block;
+  font-size:14px;
+  margin-top:2px;
+}
+
+button{
+  border:0;
+  padding:12px 22px;
+  border-radius:999px;
+  color:white;
+  font-size:15px;
+  font-weight:900;
+  cursor:pointer;
+  background:linear-gradient(90deg,#ff29c3,#6d3cff,#00d4ff);
+  box-shadow:0 0 25px #ff29c3;
+  animation:btnGlow 1.2s infinite alternate;
+}
+
+@keyframes btnGlow{
+  from{transform:scale(1)}
+  to{transform:scale(1.05)}
+}
+
+#message{
+  margin:7px 0 0;
+  min-height:20px;
+  font-size:13px;
+  color:#d723b9;
+  font-weight:900;
+}
+
+footer{
+  margin-top:8px;
+  text-align:center;
+  font-size:10px;
+  color:#ffd7ff;
+}
+
+.effects{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:999;
+}
+
+.balloon{
+  position:absolute;
+  bottom:-100px;
+  width:38px;
+  height:52px;
+  border-radius:50%;
+  animation:balloonUp 4s ease-out forwards;
+}
+
+.balloon::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50px;
+  width:2px;
+  height:45px;
+  background:white;
+}
+
+@keyframes balloonUp{
+  to{transform:translateY(-120vh) rotate(25deg);opacity:0}
+}
+
+.firework{
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:white;
+  box-shadow:
+    0 -40px #ff4fd8,
+    0 40px #00eaff,
+    40px 0 #ffe600,
+    -40px 0 #ff4fd8,
+    28px 28px white,
+    -28px -28px #00eaff,
+    28px -28px #ffe600,
+    -28px 28px white;
+  animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+  from{transform:scale(0);opacity:1}
+  to{transform:scale(2.8);opacity:0}
+}
+
+.confetti{
+  position:absolute;
+  top:-20px;
+  width:9px;
+  height:16px;
+  animation:confettiFall 3.5s linear forwards;
+}
+
+@keyframes confettiFall{
+  to{transform:translateY(110vh) rotate(720deg);opacity:0}
+}
+
+.flash{
+  position:fixed;
+  inset:0;
+  background:white;
+  opacity:.8;
+  animation:flash .45s forwards;
+}
+
+@keyframes flash{
+  to{opacity:0}
+}
+
+@media(max-width:480px){
+  .invite-card{
+    width:95vw;
+    height:96vh;
+  }
+
+  .top-label{
+    margin-bottom:100px;
+  }
+
+  h1{font-size:21px}
+  h1 span{font-size:38px}
+}
